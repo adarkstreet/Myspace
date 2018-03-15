@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { Menu } from 'semantic-ui-react';
+import { Menu, Header } from 'semantic-ui-react';
 import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { handleLogout } from '../actions/auth';
+// import { showFriends } from '../actions/showFriends;
 
 class NavBar extends Component {
   rightNavs = () => {
@@ -11,6 +12,7 @@ class NavBar extends Component {
     if (user.id) {
       return (
         <Menu.Menu position='right'>
+          {/* <Menu.Item name="View Friends" onClick={() => dispatch(dosomethinglol())} /> */}
           <Menu.Item
             name='Logout'
             onClick={() => dispatch(handleLogout(history))}
@@ -33,6 +35,7 @@ class NavBar extends Component {
   render() {
     return (
       <div>
+        <Header textAlign="center">Myspace Remastered</Header>
         <Menu pointing secondary>
           <Link to='/'>
             <Menu.Item name='home' />
