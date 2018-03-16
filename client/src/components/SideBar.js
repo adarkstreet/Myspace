@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Grid, Sidebar, Menu, Icon, Feed, Segment, Header, Card, Image, Divider, Button } from 'semantic-ui-react';
+import { Container, Sidebar, Menu, Icon, Button } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
@@ -20,12 +20,12 @@ class SidebarRightUncover extends React.Component {
     const { visible } = this.state
     return (
       <div>
-        <Button onClick={this.toggleVisibility}>Toggle Visibility</Button>
+        <Button color="blue" onClick={this.toggleVisibility}>Show Menu</Button>
         <Sidebar.Pushable as={Container}>
           <Sidebar
             as={Menu}
             animation='uncover'
-            width='wide'
+            width='thin'
             direction='right'
             visible={visible}
             icon='labeled'
@@ -39,16 +39,21 @@ class SidebarRightUncover extends React.Component {
               </Link>
             </Menu.Item>
             <Menu.Item name='friends'>
-              <Icon name='friends' />
-              Friends
+              <Link to='' >
+                <Icon name='users' />
+                Friends
+              </Link>
             </Menu.Item>
             <Menu.Item name='all_users'>
-              <Icon name='all_users' />
-              All Users
+              <Link to='/allpeople' >
+                <Icon name='find' />
+                All Users
+              </Link>
             </Menu.Item>
           </Sidebar>
           <Sidebar.Pusher>
-            <Container height="100%">
+            <Container>
+              <br />
               <FeedExampleEventsProp />
             </Container>
           </Sidebar.Pusher>

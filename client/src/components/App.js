@@ -9,7 +9,7 @@ import ProtectedRoute from './ProtectedRoute';
 import AuthRoute from './AuthRoute';
 import FetchUser from './FetchUser';
 import { Switch, Route } from 'react-router-dom';
-// bring in my_friends
+import AllPeople from './All';
 
 class App extends Component {
   render() {
@@ -20,6 +20,7 @@ class App extends Component {
         <FetchUser>
           <Switch>
             <ProtectedRoute exact path='/' component={Home} />
+            <ProtectedRoute exact path='/allpeople' component={AllPeople} />
             <AuthRoute exact path='/login' component={Login} />
             <AuthRoute exact path='/register' component={Register} />
             <Route component={NoMatch} />

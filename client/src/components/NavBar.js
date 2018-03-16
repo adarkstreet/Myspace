@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Menu, Header } from 'semantic-ui-react';
+import { Menu, Header, Image, Container } from 'semantic-ui-react';
 import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { handleLogout } from '../actions/auth';
@@ -12,7 +12,6 @@ class NavBar extends Component {
     if (user.id) {
       return (
         <Menu.Menu position='right'>
-          {/* <Menu.Item name="View Friends" onClick={() => dispatch(dosomethinglol())} /> */}
           <Menu.Item
             name='Logout'
             onClick={() => dispatch(handleLogout(history))}
@@ -35,7 +34,10 @@ class NavBar extends Component {
   render() {
     return (
       <div>
-        <Header textAlign="center">Myspace Remastered</Header>
+          <Header textAlign="center">Myspace Remastered
+            <br/>
+            <Image src="https://cdn1.iconfinder.com/data/icons/black-icon-social-media/512/099335-myspace-logo-square2.png"></Image>
+          </Header>
         <Menu pointing secondary>
           <Link to='/'>
             <Menu.Item name='home' />
